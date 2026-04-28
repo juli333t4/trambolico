@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Conciliación</title>
-  <link rel="manifest" href="manifest.json">
-</head>
+<meta charset="UTF-8">
+<title>Conciliación PRO</title>
+
 <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
-  <body>
-  <h1>App Conciliación</h1>
 
-  <input type="file" id="fileInput" />
-  <button onclick="procesar()">Procesar</button>
+<style>
+body { font-family: Arial; padding: 20px; }
+button { padding: 10px; margin: 10px 0; }
+pre { background: #111; color: #0f0; padding: 10px; }
+</style>
+</head>
 
-  <pre id="output"></pre>
+<body>
 
-  <script src="app.js"></script>
+<h2>Conciliación Bancaria PRO</h2>
+
+<h3>1. Cargar Extracto Inicial</h3>
+<input type="file" id="extractoFile">
+
+<h3>2. Importar UM</h3>
+<input type="file" id="umFile">
+<button onclick="importarUM()">Importar UM</button>
+
+<h3>3. Conciliar Cliente</h3>
+<input type="file" id="clienteFile">
+<input type="text" id="clienteNombre" placeholder="Nombre cliente">
+<button onclick="conciliar()">Conciliar</button>
+
+<h3>4. Exportar Resultado</h3>
+<button onclick="exportar()">Exportar Excel</button>
+
+<pre id="log"></pre>
+
+<script src="db.js"></script>
+<script src="app.js"></script>
+
 </body>
 </html>
